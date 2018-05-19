@@ -1,0 +1,9 @@
+[submodule "app/libs/librtlsdr"]
+	path = app/libs/librtlsdr
+	url = https://github.com/steve-m/librtlsdr
+[submodule "app/libs/libusb"]
+	path = app/libs/libusb
+	url = https://github.com/libusb/libusb.git
+[submodule "app/libs/libnrsc5/faad2-prefix/src/faad2_external"]
+	path = app/libs/libnrsc5/faad2-prefix/src/faad2_external
+	url = https://github.com/dsvensson/faad2.git

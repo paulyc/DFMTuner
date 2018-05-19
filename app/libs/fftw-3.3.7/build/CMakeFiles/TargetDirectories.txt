@@ -1,0 +1,7 @@
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/install/local.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/install/strip.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/install.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/list_install_components.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/fftw3f.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/rebuild_cache.dir
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/edit_cache.dir

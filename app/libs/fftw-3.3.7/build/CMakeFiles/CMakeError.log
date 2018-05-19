@@ -1,0 +1,243 @@
+Determining if the include file altivec.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ccdd/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_7ccdd.dir/build.make CMakeFiles/cmTC_7ccdd.dir/build
+Building C object CMakeFiles/cmTC_7ccdd.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_7ccdd.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+In file included from /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:27:2: error: "AltiVec support not enabled"
+#error "AltiVec support not enabled"
+ ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:62:19: error: unknown type name 'vector'
+static __inline__ vector signed char __ATTRS_o_ai vec_perm(
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:62:26: error: expected identifier or '('
+static __inline__ vector signed char __ATTRS_o_ai vec_perm(
+                         ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:65:19: error: unknown type name 'vector'
+static __inline__ vector unsigned char __ATTRS_o_ai
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:65:26: error: expected identifier or '('
+static __inline__ vector unsigned char __ATTRS_o_ai
+                         ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:69:19: error: unknown type name 'vector'
+static __inline__ vector bool char __ATTRS_o_ai
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:69:8: error: 'inline' can only appear on functions
+static __inline__ vector bool char __ATTRS_o_ai
+       ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:69:30: error: expected ';' after top level declarator
+static __inline__ vector bool char __ATTRS_o_ai
+                             ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:70:10: error: unknown type name 'vector'
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+         ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:70:22: error: expected ')'
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+                     ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:70:9: note: to match this '('
+vec_perm(vector bool char __a, vector bool char __b, vector unsigned char __c);
+        ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:72:19: error: unknown type name 'vector'
+static __inline__ vector short __ATTRS_o_ai vec_perm(vector signed short __a,
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:72:26: error: expected identifier or '('
+static __inline__ vector short __ATTRS_o_ai vec_perm(vector signed short __a,
+                         ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:76:19: error: unknown type name 'vector'
+static __inline__ vector unsigned short __ATTRS_o_ai
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:76:26: error: expected identifier or '('
+static __inline__ vector unsigned short __ATTRS_o_ai
+                         ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:80:19: error: unknown type name 'vector'
+static __inline__ vector bool short __ATTRS_o_ai vec_perm(
+                  ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:80:8: error: 'inline' can only appear on functions
+static __inline__ vector bool short __ATTRS_o_ai vec_perm(
+       ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:80:30: error: expected ';' after top level declarator
+static __inline__ vector bool short __ATTRS_o_ai vec_perm(
+                             ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:81:5: error: unknown type name 'vector'
+    vector bool short __a, vector bool short __b, vector unsigned char __c);
+    ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:81:17: error: expected ')'
+    vector bool short __a, vector bool short __b, vector unsigned char __c);
+                ^
+/Users/paulyc/Development/Android/my-toolchain/lib64/clang/6.0.1/include/altivec.h:80:58: note: to match this '('
+static __inline__ vector bool short __ATTRS_o_ai vec_perm(
+                                                         ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make[1]: *** [CMakeFiles/cmTC_7ccdd.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_7ccdd/fast] Error 2
+
+
+Determining if the include file c_asm.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_bcce5/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_bcce5.dir/build.make CMakeFiles/cmTC_bcce5.dir/build
+Building C object CMakeFiles/cmTC_bcce5.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_bcce5.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'c_asm.h' file not found
+#include <c_asm.h>
+         ^~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_bcce5.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_bcce5/fast] Error 2
+
+
+Determining if the include file intrinsics.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_14a81/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_14a81.dir/build.make CMakeFiles/cmTC_14a81.dir/build
+Building C object CMakeFiles/cmTC_14a81.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_14a81.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'intrinsics.h' file not found
+#include <intrinsics.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_14a81.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_14a81/fast] Error 2
+
+
+Determining if the include file libintl.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_84697/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_84697.dir/build.make CMakeFiles/cmTC_84697.dir/build
+Building C object CMakeFiles/cmTC_84697.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_84697.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'libintl.h' file not found
+#include <libintl.h>
+         ^~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_84697.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_84697/fast] Error 2
+
+
+Determining if the include file mach/mach_time.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f1d7c/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_f1d7c.dir/build.make CMakeFiles/cmTC_f1d7c.dir/build
+Building C object CMakeFiles/cmTC_f1d7c.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_f1d7c.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'mach/mach_time.h' file not found
+#include <mach/mach_time.h>
+         ^~~~~~~~~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_f1d7c.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_f1d7c/fast] Error 2
+
+
+Determining if the include file sys/sysctl.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_40142/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_40142.dir/build.make CMakeFiles/cmTC_40142.dir/build
+Building C object CMakeFiles/cmTC_40142.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_40142.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'sys/sysctl.h' file not found
+#include <sys/sysctl.h>
+         ^~~~~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_40142.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_40142/fast] Error 2
+
+
+Determining if the include file uintptr.h exists failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c5bb3/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_c5bb3.dir/build.make CMakeFiles/cmTC_c5bb3.dir/build
+Building C object CMakeFiles/cmTC_c5bb3.dir/CheckIncludeFile.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_c5bb3.dir/CheckIncludeFile.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'uintptr.h' file not found
+#include <uintptr.h>
+         ^~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_c5bb3.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTC_c5bb3/fast] Error 2
+
+
+Determining if the prototype srand48 exists for HAVE_DECL_SRAND48 failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3b9d1/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_3b9d1.dir/build.make CMakeFiles/cmTC_3b9d1.dir/build
+Building C object CMakeFiles/cmTC_3b9d1.dir/CheckPrototypeDefinition.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_3b9d1.dir/CheckPrototypeDefinition.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckPrototypeDefinition.c:15:3: error: void function 'srand48' should not return a value [-Wreturn-type]
+  return 0;
+  ^      ~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_3b9d1.dir/CheckPrototypeDefinition.c.o] Error 1
+make: *** [cmTC_3b9d1/fast] Error 2
+
+
+#include <stdlib.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef srand48
+  cmakeRequireSymbol(0, &srand48);
+#endif
+}
+
+void srand48(long int seedval) {
+  return 0;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the mach_absolute_time exist failed with the following output:
+Change Dir: /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_79ba2/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_79ba2.dir/build.make CMakeFiles/cmTC_79ba2.dir/build
+Building C object CMakeFiles/cmTC_79ba2.dir/CheckSymbolExists.c.o
+/Users/paulyc/Development/Android/my-toolchain/bin/aarch64-linux-android-clang   -fPIE -fPIC    -o CMakeFiles/cmTC_79ba2.dir/CheckSymbolExists.c.o   -c /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:2:10: fatal error: 'mach/mach_time.h' file not found
+#include <mach/mach_time.h>
+         ^~~~~~~~~~~~~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_79ba2.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTC_79ba2/fast] Error 2
+
+File /Users/paulyc/Development/DFMTuner/app/libs/fftw-3.3.7/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <mach/mach_time.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef mach_absolute_time
+  return ((int*)(&mach_absolute_time))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
