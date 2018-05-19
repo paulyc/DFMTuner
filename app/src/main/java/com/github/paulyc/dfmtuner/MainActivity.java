@@ -121,4 +121,12 @@ public class MainActivity extends AppCompatActivity {
      */
     public native String stringFromJNI();
     public native void configure(int frequency, int program);
+
+    public void onAudioData(byte[] audio_data) {
+        t.onAudioData(audio_data);
+    }
+
+    public void onLogMessage(String msg) {
+        Log.i(TAG, "onLogMessage(\"" + msg + "\"");
+    }
 }

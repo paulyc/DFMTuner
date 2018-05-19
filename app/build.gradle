@@ -21,21 +21,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-   /* task buildNative(type: Exec, description: 'Compile JNI source via NDK') {
-        android.applicationVariants.all { variant ->
-            def ndkDir = rootProject.properties['ndk.dir']
-            commandLine "$ndkDir/ndk-build",
-                    'NDK_PROJECT_PATH=null',
-                    'APP_BUILD_SCRIPT=libs/libusb/android/jni/libusb.mk',
-                    "NDK_OUT=libs/libusb/android/jni/obj/local/${variant.dirName}",
-                    "NDK_LIBS_OUT=libs/libusb/android/jni/libs/${variant.dirName}"
-
-            copy {
-                from "libs/libusb/android/jni/libs/${variant.dirName}"
-                into "libs/"
-            }
-        }
-    }*/
 
     externalNativeBuild {
         cmake {

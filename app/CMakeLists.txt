@@ -75,11 +75,14 @@ target_link_libraries(
 
 # Adds the output of the additional CMake build as a prebuilt static
 # library and names it fftw3f.
-set(lib_DIR ./libs/fftw-3.3.7)
-add_library( fftw3f STATIC IMPORTED )
+add_library( fftw3f SHARED IMPORTED )
 set_target_properties( fftw3f PROPERTIES IMPORTED_LOCATION
-        ${lib_DIR}/install/${ANDROID_ABI}/lib/libfftw3f.a )
-include_directories( ${lib_DIR}/install/${ANDROID_ABI}/include )
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libfftw3f.so )
+include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/libs/fftw-3.3.7/install/${ANDROID_ABI}/include )
+#file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/debug/obj/${ANDROID_ABI}/)
+#file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/release/obj/${ANDROID_ABI}/)
+#file(COPY ${lib_DIR}/install/${ANDROID_ABI}/lib/libfftw3f.so DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/debug/obj/${ANDROID_ABI})
+#file(COPY ${lib_DIR}/install/${ANDROID_ABI}/lib/libfftw3f.so DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/release/obj/${ANDROID_ABI})
 
 add_library(
         rtlsdr
@@ -103,7 +106,6 @@ target_link_libraries(
 
         ${log-lib}
         usb1.0
-        #fftw3f
 )
 
 set(CMAKE_C_FLAGS -DHAVE_CONFIG_H)
@@ -163,8 +165,8 @@ add_library(
         # Sets the name of the library.
         nrsc5
 
-        # Sets the library as a static library.
-        STATIC
+        # Sets the library as a shared library.
+        SHARED
 
         # Provides a relative path to your source file(s).
         libs/libnrsc5/src/acquire.c
@@ -203,8 +205,8 @@ add_library(
         # Sets the name of the library.
         native-lib
 
-        # Sets the library as a static library.
-        STATIC
+        # Sets the library as a shared library.
+        SHARED
 
         # Provides a relative path to your source file(s).
         src/main/cpp/native-lib.cpp
