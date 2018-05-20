@@ -31,6 +31,7 @@ public class TunerActivity extends AppCompatActivity {
 
     private static final String TAG = "TunerActivity";
     private static final Tuner tuner = new Tuner();
+    private static final TunerMediaPlayer mp = new TunerMediaPlayer(tuner);
 
     // Used to load the 'native-lib' library on application startup.
     static {
@@ -52,13 +53,14 @@ public class TunerActivity extends AppCompatActivity {
                             //call method to set up device communication
                             Log.d(TAG, "permission granted for device " + mUsbDevice);
                             tuner.setDevice(mUsbDevice);
-                            tuner.tune(101100000, 0);
+                            tuner.configure(101100000, 0);
+                            tuner.start();
                         }
                     }
                     else {
                         Log.d(TAG, "permission denied for device " + mUsbDevice);
                     }
-                    //unregisterReceiver(this);
+                    unregisterReceiver(this);
                 }
             }
         }

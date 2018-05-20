@@ -28,7 +28,8 @@ public:
     if (_pool.empty()) {
       return alloc();
     } else {
-      std::unique_ptr<uint8_t[]> buf(_pool.front());
+      std::unique_ptr<uint8_t[]> buf;
+      buf.swap(_pool.front());
       _pool.pop();
       return buf;
     }
@@ -81,7 +82,7 @@ public:
   struct Event {
     virtual void f() {}
   };
-  struct ReconfigureEvent : Event {
+  struct ConfigureEvent : Event {
     unsigned long frequency;
     int program;
   };
@@ -96,7 +97,7 @@ public:
         const std::type_info &ti = typeid(*ev);
 
         if (ti == typeid(ProcessAudioEvent)) {
-        } else if (ti == typeid(ReconfigureEvent)) {
+        } else if (ti == typeid(ConfigureEvent)) {
 
         } else if (ti == typeid(StopEvent)) {
           break;
@@ -113,8 +114,8 @@ public:
     }
   }
 
-  void reconfigure(unsigned long frequency, int program) {
-    ReconfigureEvent *e = new ReconfigureEvent;
+  void configure(unsigned long frequency, int program) {
+    ConfigureEvent *e = new ConfigureEvent;
     e->frequency = frequency;
     e->program = program;
     pushEvent(e);
@@ -167,7 +168,7 @@ private:
 //public native void configure(int frequency, int program);
 //public native void poll();
 
-static TunerExecutor executor;
+static std::unique_ptr<TunerExecutor> executor;
 
 extern "C" JNIEXPORT jstring JNICALL
 Java_com_github_paulyc_dfmtuner_MainActivity_stringFromJNI(
@@ -179,8 +180,18 @@ Java_com_github_paulyc_dfmtuner_MainActivity_stringFromJNI(
 
 extern "C" void audio_cb(void *data, uint32_t num_bytes) {
   // put in queue
-  executor.onAudioCallback(data, num_bytes);
+  executor->onAudioCallback(data, num_bytes);
 
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_github_paulyc_dfmtuner_Tuner_init(
+    JNIEnv *env,
+    jobject this_
+) {
+  if (executor == nullptr) {
+    executor.reset(new TunerExecutor);
+  }
 }
 
 extern "C" JNIEXPORT void JNICALL
@@ -188,11 +199,23 @@ Java_com_github_paulyc_dfmtuner_Tuner_start(
     JNIEnv *env,
     jobject this_
 ) {
-  executor.run();
+  if (executor != nullptr) {
+    executor->run();
+  }
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_github_paulyc_dfmtuner_Tuner_poll(
+Java_com_github_paulyc_dfmtuner_Tuner_stop(
+    JNIEnv *env,
+    jobject this_
+) {
+  if (executor != nullptr) {
+    executor->stop();
+  }
+}
+
+extern "C" JNIEXPORT jbyteArray JNICALL
+Java_com_github_paulyc_dfmtuner_Tuner_pollAudioData(
     JNIEnv *env,
     jobject this_
 ) {
@@ -228,5 +251,7 @@ Java_com_github_paulyc_dfmtuner_Tuner_configure(
     jint frequency,
     jint program
 ) {
-    configure(frequency, program, audio_cb);
+  if (executor != nullptr) {
+    executor->configure(frequency, program);
+  }
 }

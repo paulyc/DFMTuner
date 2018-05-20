@@ -10,25 +10,18 @@ public class Tuner {
         System.loadLibrary("native-lib");
     }
 
-    private static final TunerMediaSource src = new TunerMediaSource();
-
     public Tuner() {
-
-    }
-
-    public void tune(int frequency, int program) {
-
+        init();
+        configure(101100000, 0);
     }
     public void setDevice(UsbDevice usbDevice) {
 
     }
+    private native void init();
     public native void start();
+    public native void stop();
     public native void configure(int frequency, int program);
-    public native void poll();
-
-    public void onAudioData(byte[] audio_data) {
-        //t.onAudioData(audio_data);
-    }
+    public native byte[] pollAudioData();
 
     public void onLogMessage(String msg) {
         Log.i(TAG, "onLogMessage(\"" + msg + "\"");
