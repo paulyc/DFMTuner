@@ -30,6 +30,7 @@
 #endif
 
 #include <rtl-sdr.h>
+#include <jni.h>
 
 #include "defines.h"
 #include "input.h"
@@ -93,6 +94,10 @@ static void help(const char *progname)
 static input_t input;
 static output_t output;
 
+void log_jni(const char *msg) {
+  fprintf(stderr, "%s\n", msg);
+}
+
 void configure(unsigned int frequency, unsigned int program, void(*audio_cb)(void*,uint32_t)) {
   int err, opt, gain = INT_MIN, ppm_error = 0;
 
@@ -101,7 +106,6 @@ void configure(unsigned int frequency, unsigned int program, void(*audio_cb)(voi
   /*rtlsdr_open()*/
 
   //output_init_wav(&output, audio_name);
-
 
   output_init(&output);
 

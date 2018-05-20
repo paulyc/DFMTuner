@@ -24,24 +24,35 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter android:order="1">
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
 
                 <data
                     android:host="paulyc.github.com"
                     android:pathPattern="/.*"
                     android:scheme="https" />
-
             </intent-filter>
 
             <meta-data
                 android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
                 android:resource="@xml/device_filter" />
         </activity>
+
+        <service
+            android:name=".TunerIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".TunerActivity"
+            android:label="@string/title_activity_tuner"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

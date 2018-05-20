@@ -40,10 +40,7 @@ static const char *level_colors[] = {
 };
 #endif
 
-void log_jni(const char *msg) {
-  /*jstring jmsg = cb_data.env->NewStringUTF(msg);
-  cb_data.env->CallVoidMethodA(cb_data.tuner, cb_data.log_id, (jvalue*)&jmsg);*/
-}
+void log_jni(const char *msg);
 
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
   char msg_out[1024];

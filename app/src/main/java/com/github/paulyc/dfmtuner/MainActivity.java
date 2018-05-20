@@ -24,40 +24,6 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private static final TunerMediaPlayer t = new TunerMediaPlayer();
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
-    private static final String ACTION_USB_PERMISSION =
-            "com.github.paulyc.hdfmtuner.USB_PERMISSION";
-    private UsbManager mUsbManager;
-    private UsbDevice mUsbDevice;
-    private PendingIntent mPermissionIntent;
-    private final BroadcastReceiver mUsbReceiver = new BroadcastReceiver() {
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (ACTION_USB_PERMISSION.equals(action)) {
-                synchronized (this) {
-                    mUsbDevice = intent.getParcelableExtra(UsbManager.EXTRA_DEVICE);
-
-                    if (intent.getBooleanExtra(UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                        if (mUsbDevice != null){
-                            //call method to set up device communication
-                            Log.d(TAG, "permission granted for device " + mUsbDevice);
-                            configure(101100000, 0);
-                            t.start();
-                        }
-                    }
-                    else {
-                        Log.d(TAG, "permission denied for device " + mUsbDevice);
-                    }
-                    //unregisterReceiver(this);
-                }
-            }
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,19 +44,6 @@ public class MainActivity extends AppCompatActivity {
         // Example of a call to a native method
         TextView tv = (TextView) findViewById(R.id.sample_text);
         tv.setText(stringFromJNI());
-
-        mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
-        mPermissionIntent = PendingIntent.getBroadcast(this, 0, new Intent(ACTION_USB_PERMISSION), 0);
-        IntentFilter filter = new IntentFilter(ACTION_USB_PERMISSION);
-        registerReceiver(mUsbReceiver, filter);
-        HashMap<String, UsbDevice> deviceList = mUsbManager.getDeviceList();
-        for(Map.Entry<String, UsbDevice> entry : deviceList.entrySet()){
-            Log.i(TAG, "Have USB Device: key=" + entry.getKey() + " getProductName " + entry.getValue().getProductName());
-            if ("RTL2838UHIDIR".equals(entry.getValue().getProductName())) {
-                mUsbDevice = entry.getValue();
-                mUsbManager.requestPermission(mUsbDevice, mPermissionIntent);
-            }
-        }
     }
 
     @Override
@@ -120,13 +73,4 @@ public class MainActivity extends AppCompatActivity {
      * which is packaged with this application.
      */
     public native String stringFromJNI();
-    public native void configure(int frequency, int program);
-
-    public void onAudioData(byte[] audio_data) {
-        t.onAudioData(audio_data);
-    }
-
-    public void onLogMessage(String msg) {
-        Log.i(TAG, "onLogMessage(\"" + msg + "\"");
-    }
 }
