@@ -5,27 +5,12 @@
 
 cmake_minimum_required(VERSION 3.4.1)
 
-if(ANDROID_TOOLCHAIN_NAME MATCHES "^arm-linux-androideabi-")
-    set(TARGET_PLATFORM arm-linux-androideabi)
-elseif(ANDROID_TOOLCHAIN_NAME MATCHES "^aarch64-linux-android-")
-    set(TARGET_PLATFORM aarch64-linux-android)
-elseif(ANDROID_TOOLCHAIN_NAME MATCHES "^x86-")
-    set(TARGET_PLATFORM i686-linux-android)
-elseif(ANDROID_TOOLCHAIN_NAME MATCHES "^i686-")
-    set(TARGET_PLATFORM i686-linux-android)
-elseif(ANDROID_TOOLCHAIN_NAME MATCHES "^x86_64-linux-android-")
-    set(TARGET_PLATFORM x86_64-linux-android)
-else()
-    set(TARGET_PLATFORM asm-generic)
-endif()
-
 include_directories(
         libs/libusb/android
         libs/libusb/libusb
         libs/libnrsc5/faad2-prefix/src/faad2_external/include
         libs/libnrsc5/faad2-prefix/src/faad2_external/libfaad
         libs/librtlsdr/include
-        ${ANDROID_NDK}/sysroot/usr/include/${TARGET_PLATFORM}
 )
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -79,10 +64,6 @@ add_library( fftw3f SHARED IMPORTED )
 set_target_properties( fftw3f PROPERTIES IMPORTED_LOCATION
         ${CMAKE_CURRENT_SOURCE_DIR}/src/main/jniLibs/${ANDROID_ABI}/libfftw3f.so )
 include_directories( ${CMAKE_CURRENT_SOURCE_DIR}/libs/fftw-3.3.7/install/${ANDROID_ABI}/include )
-#file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/debug/obj/${ANDROID_ABI}/)
-#file(MAKE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/release/obj/${ANDROID_ABI}/)
-#file(COPY ${lib_DIR}/install/${ANDROID_ABI}/lib/libfftw3f.so DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/debug/obj/${ANDROID_ABI})
-#file(COPY ${lib_DIR}/install/${ANDROID_ABI}/lib/libfftw3f.so DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/.externalNativeBuild/cmake/release/obj/${ANDROID_ABI})
 
 add_library(
         rtlsdr
@@ -107,8 +88,6 @@ target_link_libraries(
         ${log-lib}
         usb1.0
 )
-
-set(CMAKE_C_FLAGS -DHAVE_CONFIG_H)
 
 add_library(
         faad2
